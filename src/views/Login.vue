@@ -1,49 +1,46 @@
 <template>
-  <div class="container" style="background-color: rgba(var(--b3f,250,250,250),1);">
-    <div style="display:flex; flex-direction: row-reverse; justify-content: space-between; margin-top: 100px; margin-right: 200px; margin-left: 200px">
-      <b-card
-        tag="article"
-        style="width:350px;font-family: 'Montserrat', sans-serif;"
-        class="text-center"
-        
-      >
-        <h1 style="margin-bottom: 20px">Instabook</h1>
-        <b-form>
-          <b-form-group
-            id="input-group-1"
-          >
-            <b-form-input
-              id="input-1"
-              v-model="user.email"
-              type="email"
-              placeholder="email or username"
-              required
-              style="border-radius:2px;font-size:13px;"
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group id="input-group-2" class="mt-2">
-            <b-form-input
-              id="input-2"
-              v-model="user.password"
-              type="password"
-              placeholder="password"
-              required
-              style="border-radius:2px;font-size:13px;"
-            ></b-form-input>
-          </b-form-group>
-          <b-button class="login-button"  variant="btn btn-primary" @click="loginUser()">Login</b-button>
-        </b-form>
-        <div class="line"></div>
-        <p style="margin-top: 30px">Don't have an account? Register <a href="" style="text-decoration:none"  @click="showRegister">here</a></p>
-      </b-card>
-      <!-- <img src="../assets/instabook-image.jpg" alt="instabook image" class="instabook-image"> -->
-      <div class="instabook-image"> 
-        <p class="instabook-text-one">Join Instabook today!</p>
-        <p class="instabook-text-two">Over 500 million accounts made!</p>
-      </div>
+  <div class="container main-div">
+    <div class="instabook-image"> 
+      <p class="instabook-text-one">Join Instabook today!</p>
+      <p class="instabook-text-two">Over 500 million accounts made!</p>
     </div>
-      <Register v-if="register"/>
+    <b-card
+      tag="article"
+      style="width:350px;font-family: 'Montserrat', sans-serif;"
+      class="text-center"
+      
+    >
+      <h1 style="margin-bottom: 20px">Instabook</h1>
+      <b-form>
+        <b-form-group
+          id="input-group-1"
+        >
+          <b-form-input
+            id="input-1"
+            v-model="user.email"
+            type="email"
+            placeholder="email or username"
+            required
+            style="border-radius:2px;font-size:13px;"
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group id="input-group-2" class="mt-2">
+          <b-form-input
+            id="input-2"
+            v-model="user.password"
+            type="password"
+            placeholder="password"
+            required
+            style="border-radius:2px;font-size:13px;"
+          ></b-form-input>
+        </b-form-group>
+        <b-button class="login-button"  variant="btn btn-primary" @click="loginUser()">Login</b-button>
+      </b-form>
+      <div class="line"></div>
+      <p style="margin-top: 30px">Don't have an account? Register <a href="" style="text-decoration:none"  @click="showRegister">here</a></p>
+    </b-card>
+    <Register v-if="register"/>
   </div>
 </template>
 
@@ -91,6 +88,14 @@ export default {
 <style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,100;1,300&display=swap');
 
+  .main-div {
+    background-color: rgba(var(--b3f,250,250,250),1);
+    display:flex;
+    justify-content:space-between;
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+
   .login-input{
     border-radius:2px;
     font-size:13px;
@@ -131,13 +136,13 @@ export default {
     background-image: url("../assets/instabook-image.jpg");
     background-size: contain;
     background-size: cover;
-    /* background-attachment: fixed; */
+    font-family: 'Montserrat', sans-serif;
   }
 
   .instabook-text-one {
     color: white; 
-     margin-top: 2px;
-    margin-left: 78px;
+    margin-top: 2px;
+    margin-left: 68px;
     font-size: 20px; 
     text-shadow: 1px 1px 2px black; 
   }
@@ -146,7 +151,57 @@ export default {
     color: white;
     margin-top: 290px;
     margin-left: 30px;
-    font-size: 20px;
+    font-size: 18px;
     text-shadow: 1px 1px 2px black;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .main-div {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .main-div {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .main-div {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+
+  @media only screen and (min-width: 851px) and (max-width: 999px){
+    .main-div {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .instabook-text-one {
+      margin-top: 3px;
+      margin-left: 78px;
+      font-size: 18px; 
+    }
+
+    .instabook-text-two {
+      margin-top: 290px;
+      margin-left: 38px;
+      font-size: 17px; 
+    }
+  }
+
+  @media only screen and (max-width: 850px) {
+    .main-div {
+     justify-content:center;
+    }
+
+    .instabook-image {
+      display: none;
+    }
   }
 </style>

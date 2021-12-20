@@ -1,33 +1,20 @@
 <template>
-  <!-- Footer -->
-  <mdb-footer class="font-small pt-0">
-    <!-- <mdb-container>
-      <mdb-row class="pt-5 mb-3 text-center d-flex justify-content-center">
-        <mdb-col class="list">
-          <h6><a href="#!">About us</a></h6>
-        </mdb-col>
-        <mdb-col class="list">
-          <h6><a href="#!">Products</a></h6>
-        </mdb-col>
-        <mdb-col class="list">
-          <h6><a href="#!">Awards</a></h6>
-        </mdb-col>
-        <mdb-col class="list">
-          <h6><a href="#!">Help</a></h6>
-        </mdb-col>
-        <mdb-col class="list">
-          <h6><a href="#!">Contact</a></h6>
-        </mdb-col>
-      </mdb-row>
-      <hr class="footer" style="margin: '10% 15% 5%'" />
-    </mdb-container> -->
-    <div class="footer-copyright text-center py-3" style="background-color: rgba(var(--b3f,250,250,250),1);">
-      <mdb-container fluid style="font-weight: bold">
-        &copy; 2021 Copyright: <a href="https://www.instabook.com" style="text-decoration: none"> Instabook.com </a>
-      </mdb-container>
+  <footer>
+    <div  class="main-div">
+      <div class="line-one"></div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Development</a></li>
+          <li><a href="#">Useful Links</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Company</a></li>
+        </ul>
+      </div>
+      <div class="line-two"></div>
     </div>
-  </mdb-footer>
-  <!-- Footer -->
+  </footer>
 </template>
 
 <script>
@@ -36,13 +23,45 @@ export default {
 }
 </script>
 
-<style>
-  .footer {
-    color: #66a3ff;
+<style scoped>
+
+  .main-div {
+    background-color: rgba(var(--b3f,250,250,250),1);
   }
 
-  .list {
-    margin-left: 7px;
+   .instabook-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
   }
-    /* background-color: rgba(var(--b3f,250,250,250),1); */
+
+   .footer-links {
+     display: flex;
+     justify-content: center;
+     flex-direction: row;
+     text-decoration: none;
+     margin-top: 200px;
+   }
+
+   .footer-links ul{
+     display: flex;
+     justify-content: space-between;
+     flex-direction: row;
+     gap: 30px;
+     list-style-type: none;
+   }
+
+   .footer-links ul a{
+    text-decoration: none;
+   }
+
+    .line-two {
+      height: 2px;
+      color: #66a3ff;
+  }
+
+   .line-two {
+      height: 2px;
+      color: #66a3ff;
+  }
 </style>

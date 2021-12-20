@@ -4,14 +4,14 @@
       <p class="instabook-text-one">Join Instabook today!</p>
       <p class="instabook-text-two">Over 500 million accounts made!</p>
     </div>
-    <b-card
+    <b-card 
       tag="article"
-      style="width:350px;font-family: 'Montserrat', sans-serif;"
+      style="width:350px;font-family: 'Montserrat', sans-serif; box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);"
       class="text-center"
       
     >
       <h1 style="margin-bottom: 20px">Instabook</h1>
-      <b-form>
+      <b-form @submit="preventDefault()">
         <b-form-group
           id="input-group-1"
         >
@@ -38,9 +38,9 @@
         <b-button class="login-button"  variant="btn btn-primary" @click="loginUser()">Login</b-button>
       </b-form>
       <div class="line"></div>
-      <p style="margin-top: 30px">Don't have an account? Register <a href="" style="text-decoration:none"  @click="showRegister">here</a></p>
+      <p style="margin-top: 30px">Don't have an account? Register <a href="#" style="text-decoration:none" v-b-modal.modal-register>here</a></p>
     </b-card>
-    <Register v-if="register"/>
+    <Register/>
   </div>
 </template>
 
@@ -51,8 +51,7 @@ import Register from "./Register"
 export default {
   data(){
     return{
-      user:{},
-      register: false
+      user:{}
     }
   },
   components: {
@@ -67,13 +66,6 @@ export default {
     ...mapActions({
       login: 'login'
     }),
-
-    showRegister(e) {
-
-      e.preventDefault();
-
-      this.register = true;
-    },
     loginUser(){
       this.login(this.user).then(() => {
         if(!this.errors){
@@ -94,6 +86,8 @@ export default {
     justify-content:space-between;
     padding-left: 200px;
     padding-right: 200px;
+    padding-top: 100px;
+    /* margin-top: 100px; */
   }
 
   .login-input{
@@ -137,6 +131,7 @@ export default {
     background-size: contain;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   }
 
   .instabook-text-one {

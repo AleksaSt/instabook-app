@@ -3,7 +3,8 @@ import { authService } from '../services/AuthService'
 export const AuthStore = {
   state:{
     token:localStorage.getItem('token'),
-    errors:[]
+    errors:[],
+    user: localStorage.getItem('user'),
   },
 
   mutations:{
@@ -13,6 +14,10 @@ export const AuthStore = {
 
     setToken(state, token){
         state.token = token
+    },
+
+    setUser(state, user){
+      state.user = user
     }
   },
 
@@ -22,20 +27,24 @@ export const AuthStore = {
           const response = await authService.login(credentials)
   
           authService.setHeaders({
-              Authorization: `Bearer: ${response.data}`
+            Authorization: `Bearer: ${response.data}`
           })
 
           localStorage.setItem('token', response.data.token)
+          localStorage.setItem('user', response.data.user)
 
           context.commit('setErrors', null)
           context.commit('setToken', response.data.token)
+          context.commit('setUser', response.data.user)
       }catch(exception){
           context.commit('setErrors', exception.response.data.error)
       }
     },
     async logout(context){
       localStorage.removeItem('token')
+      localStorage.removeItem('user')
       context.commit('setToken', null)
+      context.commit('setUser', null)
     }
   },
 
@@ -46,6 +55,10 @@ export const AuthStore = {
 
     isUserLoggedIn(state){
         return !!state.token
+    },
+
+    getUser(state){
+      return state.user
     }
   }
 }

@@ -21,6 +21,17 @@
           ></b-form-input>
         </b-form-group>
 
+        <b-form-group id="input-group-3" class="mt-2">
+          <b-form-input
+            id="input-2"
+            v-model="user.name"
+            type="text"
+            placeholder="username"
+            required
+            style="border-radius:2px;font-size:13px;"
+          ></b-form-input>
+        </b-form-group>
+
         <b-form-group id="input-group-2" class="mt-2">
           <b-form-input
             id="input-2"
@@ -56,7 +67,7 @@ import { mapActions } from 'vuex'
       loginUser(){
         this.login(this.user).then(() => {
           this.user = {}
-          this.$router.push({name: 'Home'})
+          this.$router.push({name: 'Dashboard'})
         })
       },
       register(){

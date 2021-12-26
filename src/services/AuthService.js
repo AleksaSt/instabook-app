@@ -2,7 +2,7 @@ import { HttpService } from './HttpService'
 
 class AuthService extends HttpService {
   register(user){
-    return this.axios.post('signup', user)
+    return this.axios.post('register', user)
   }
 
   login(user){

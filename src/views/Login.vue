@@ -69,7 +69,7 @@ export default {
     loginUser(){
       this.login(this.user).then(() => {
         if(!this.errors){
-          this.$router.push({name: 'Home'})
+          this.$router.push({name: 'Dashboard'})
         }
       })
     }

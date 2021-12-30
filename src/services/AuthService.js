@@ -8,6 +8,10 @@ class AuthService extends HttpService {
   login(user){
     return this.axios.post('login', user)
   }
+
+  getImages(){
+    return this.axios.get('file')
+  }
 }
 
 export const authService = new AuthService()
